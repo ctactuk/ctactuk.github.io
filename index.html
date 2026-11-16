@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos Tactuk · Senior Full-Stack Developer</title>
+<meta name="description" content="Senior Full-Stack Developer en Santiago, RD. ERP (Odoo), facturación electrónica DGII e-CF y agentes de IA para empresas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f14; --bg2:#111821; --card:#141c26; --line:#223042;
+    --text:#e6edf3; --muted:#8b9bb0; --accent:#38e0a6; --accent2:#5aa9ff; --warn:#ffb454;
+    --mono:'JetBrains Mono',ui-monospace,monospace; --sans:'Space Grotesk',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:var(--mono);font-weight:600;font-size:15px}
+  .logo span{color:var(--accent)}
+  .links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--muted)}
+  .links a:hover{color:var(--text)}
+  .lang{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex}
+  .lang button{background:none;border:0;color:var(--muted);padding:6px 10px;cursor:pointer;font:inherit}
+  .lang button.on{background:var(--accent);color:#04120c;font-weight:600}
+  @media(max-width:760px){.links a{display:none}}
+
+  /* hero */
+  .hero{padding:110px 0 90px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(600px 300px at 80% 10%,rgba(56,224,166,.12),transparent 70%),
+    radial-gradient(500px 300px at 10% 90%,rgba(90,169,255,.10),transparent 70%);pointer-events:none}
+  .tag{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(56,224,166,.6);animation:pulse 2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(56,224,166,0)}100%{box-shadow:0 0 0 0 rgba(56,224,166,0)}}
+  h1{font-size:clamp(38px,6vw,68px);line-height:1.05;font-weight:700;letter-spacing:-.02em;max-width:900px}
+  h1 em{font-style:normal;color:var(--accent)}
+  .lead{margin-top:24px;font-size:19px;color:var(--muted);max-width:680px}
+  .cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:8px;font-weight:500;font-size:15px;transition:.2s}
+  .btn.primary{background:var(--accent);color:#04120c}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(56,224,166,.25)}
+  .btn.ghost{border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--muted)}
+  .stats{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .stat{background:var(--bg);padding:22px}
+  .stat b{display:block;font-size:30px;font-weight:700}
+  .stat span{font-size:13px;color:var(--muted)}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* sections */
+  section{padding:90px 0;border-top:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:10px}
+  h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.01em;margin-bottom:14px}
+  .sub{color:var(--muted);max-width:640px;margin-bottom:48px}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.grid3{grid-template-columns:1fr}}
+  .svc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px;transition:.25s}
+  .svc:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .ico{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:rgba(56,224,166,.1);color:var(--accent);font-size:22px;margin-bottom:18px}
+  .svc h3{font-size:19px;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:15px}
+
+  /* projects */
+  .proj{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:36px;margin-bottom:22px}
+  @media(max-width:900px){.proj{grid-template-columns:1fr;padding:26px}}
+  .proj h3{font-size:24px;margin-bottom:10px}
+  .proj p{color:var(--muted);margin-bottom:16px}
+  .proj ul{list-style:none;margin-bottom:18px}
+  .proj li{padding-left:20px;position:relative;font-size:15px;margin-bottom:6px}
+  .proj li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);top:.65em;position:absolute;left:0;color:var(--accent)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-family:var(--mono);font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:20px;color:var(--muted)}
+  .flow{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:22px}
+  .flow svg{width:100%;height:auto;display:block}
+  .flow text{font-family:var(--mono);font-size:11px;fill:var(--text)}
+  .flow .n{fill:var(--card);stroke:var(--line);stroke-width:1.2}
+  .flow .na{fill:rgba(56,224,166,.08);stroke:var(--accent);stroke-width:1.2}
+  .flow .nb{fill:rgba(90,169,255,.08);stroke:var(--accent2);stroke-width:1.2}
+  .flow .e{stroke:var(--muted);stroke-width:1.3;fill:none;marker-end:url(#arr)}
+  .flow .ed{stroke:var(--accent);stroke-width:1.3;fill:none;stroke-dasharray:4 4;animation:dash 1s linear infinite;marker-end:url(#arr2)}
+  @keyframes dash{to{stroke-dashoffset:-8}}
+
+  .also{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:760px){.also{grid-template-columns:1fr}}
+  .mini{border:1px solid var(--line);border-radius:12px;padding:24px}
+  .mini h4{font-size:17px;margin-bottom:6px}
+  .mini p{color:var(--muted);font-size:14px;margin-bottom:12px}
+
+  /* stack */
+  .stack{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.stack{grid-template-columns:1fr}}
+  .grp{border:1px solid var(--line);border-radius:12px;padding:24px}
+  .grp h4{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:12px;font-weight:600}
+  .grp .chips .chip{color:var(--text)}
+
+  /* timeline */
+  .tl{border-left:2px solid var(--line);margin-left:6px}
+  .tli{position:relative;padding:0 0 34px 28px}
+  .tli::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+  .tli small{font-family:var(--mono);color:var(--muted);font-size:12px}
+  .tli h4{font-size:18px;margin:2px 0 4px}
+  .tli p{color:var(--muted);font-size:15px;max-width:680px}
+
+  /* contact */
+  .contact{text-align:center;padding:110px 0}
+  .contact h2{font-size:clamp(32px,5vw,52px)}
+  .contact .sub{margin:14px auto 34px}
+  .contact .cta{justify-content:center}
+  footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px;font-family:var(--mono)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.dot,.flow .ed{animation:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Carlos<span>.</span>Tactuk</a>
+    <div class="links">
+      <a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a>
+      <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+      <a href="#stack">Stack</a>
+      <a href="#experiencia" data-es="Experiencia" data-en="Experience">Experiencia</a>
+      <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+      <div class="lang"><button id="b-es" class="on">ES</button><button id="b-en">EN</button></div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="tag"><span data-es="Disponible para proyectos · Santiago, RD · Remoto" data-en="Available for projects · Santiago, DR · Remote">Disponible para proyectos · Santiago, RD · Remoto</span></div>
+    <h1 data-es="Construyo ERPs, facturación electrónica y <em>agentes de IA</em> que trabajan para tu negocio." data-en="I build ERPs, e-invoicing and <em>AI agents</em> that work for your business.">Construyo ERPs, facturación electrónica y <em>agentes de IA</em> que trabajan para tu negocio.</h1>
+    <p class="lead" data-es="Soy Carlos, Senior Full-Stack Developer con más de 10 años conectando los sistemas que mueven una empresa: ERP, punto de venta, DGII, telefonía y apps móviles, con IA encima que lee y actúa de forma segura." data-en="I'm Carlos, a Senior Full-Stack Developer with 10+ years connecting the systems a company runs on: ERP, point of sale, tax authority, phone lines and mobile apps, with AI on top that reads and acts safely.">Soy Carlos, Senior Full-Stack Developer con más de 10 años conectando los sistemas que mueven una empresa: ERP, punto de venta, DGII, telefonía y apps móviles, con IA encima que lee y actúa de forma segura.</p>
+    <div class="cta">
+      <a class="btn primary" href="#proyectos" data-es="Ver proyectos" data-en="See projects">Ver proyectos</a>
+      <a class="btn ghost" href="#contacto" data-es="Hablemos" data-en="Let's talk">Hablemos</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>10+</b><span data-es="años de experiencia" data-en="years of experience">años de experiencia</span></div>
+      <div class="stat"><b>v12–19</b><span data-es="versiones de Odoo" data-en="Odoo versions">versiones de Odoo</span></div>
+      <div class="stat"><b>5–10</b><span data-es="días para salir con e-CF" data-en="days to go live with e-CF">días para salir con e-CF</span></div>
+      <div class="stat"><b>3</b><span data-es="sucursales en una sola plataforma" data-en="branches on one platform">sucursales en una sola plataforma</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="servicios">
+  <div class="wrap">
+    <h2 class="reveal" data-es="Lo que hago" data-en="What I do">Lo que hago</h2>
+    <p class="sub reveal" data-es="Tres líneas de trabajo que se refuerzan entre sí: el sistema de gestión, el cumplimiento fiscal y la automatización con IA." data-en="Three lines of work that reinforce each other: the management system, tax compliance and AI automation.">Tres líneas de trabajo que se refuerzan entre sí: el sistema de gestión, el cumplimiento fiscal y la automatización con IA.</p>
+    <div class="grid3">
+      <div class="svc reveal">
+        <h3 data-es="Agentes de IA para pymes" data-en="AI agents for SMBs">Agentes de IA para pymes</h3>
+        <p data-es="Agentes conectados a tu ERP y WhatsApp que consultan, responden y ejecutan tareas, con permisos por rol y confirmación antes de cualquier cambio." data-en="Agents wired into your ERP and WhatsApp that look things up, answer and carry out tasks, with role-based permissions and confirmation before any change.">Agentes conectados a tu ERP y WhatsApp que consultan, responden y ejecutan tareas, con permisos por rol y confirmación antes de cualquier cambio.</p>
+      </div>
+      <div class="svc reveal">
+        <h3 data-es="Facturación electrónica DGII" data-en="DGII e-invoicing">Facturación electrónica DGII</h3>
+        <p data-es="Implementación de e-CF de punta a punta: generación y firma de XML, envío a la DGII, seguimiento de estados y asistente de certificación." data-en="End-to-end e-CF implementation: XML build and signing, DGII submission, status tracking and a certification assistant.">Implementación de e-CF de punta a punta: generación y firma de XML, envío a la DGII, seguimiento de estados y asistente de certificación.</p>
+      </div>
+      <div class="svc reveal">
+        <h3 data-es="ERP e integraciones" data-en="ERP & integrations">ERP e integraciones</h3>
+        <p data-es="Odoo 12 a 19, módulos a medida, migraciones, multi-sucursal y localización dominicana (NCF, ITBIS). Integrado con POS, apps y n8n." data-en="Odoo 12 to 19, custom modules, migrations, multi-branch and Dominican localization (NCF, ITBIS). Integrated with POS, apps and n8n.">Odoo 12 a 19, módulos a medida, migraciones, multi-sucursal y localización dominicana (NCF, ITBIS). Integrado con POS, apps y n8n.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <h2 class="reveal" data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h2>
+    <p class="sub reveal" data-es="Algunos de los sistemas que he desarrollado y que hoy están en uso." data-en="Some of the systems I have built that are in use today.">Algunos de los sistemas que he desarrollado y que hoy están en uso.</p>
+    <div class="proj reveal">
+      <div>
+        <h3 data-es="Agente de IA sobre Odoo" data-en="AI agent on Odoo">Agente de IA sobre Odoo</h3>
+        <p data-es="Servicio en FastAPI con el SDK de Anthropic que ejecuta un loop agéntico sobre Odoo 19 para atención al cliente y helpdesk." data-en="FastAPI service using the Anthropic SDK that runs an agentic loop over Odoo 19 for customer service and helpdesk.">Servicio en FastAPI con el SDK de Anthropic que ejecuta un loop agéntico sobre Odoo 19 para atención al cliente y helpdesk.</p>
+        <ul>
+          <li data-es="Herramientas por rol: solo lectura para clientes, escritura para staff" data-en="Role-scoped tools: read-only for customers, write for staff">Herramientas por rol: solo lectura para clientes, escritura para staff</li>
+          <li data-es="Compuerta de confirmación antes de cada escritura" data-en="Confirmation gate before every write">Compuerta de confirmación antes de cada escritura</li>
+          <li data-es="Triaje de tickets y mensajes a clientes vía MCP" data-en="Ticket triage and customer messaging via MCP">Triaje de tickets y mensajes a clientes vía MCP</li>
+        </ul>
+        <div class="chips"><span class="chip">FastAPI</span><span class="chip">Claude tool-use</span><span class="chip">MCP</span><span class="chip">Odoo 19</span><span class="chip">XML-RPC</span></div>
+      </div>
+      <div class="flow">
+        <svg viewBox="0 0 420 220">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#8b9bb0"/></marker>
+            <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#38e0a6"/></marker>
+          </defs>
+          <rect class="n" x="6" y="88" width="88" height="44" rx="8"/><text x="50" y="106" text-anchor="middle">Cliente</text><text x="50" y="121" text-anchor="middle">WhatsApp</text>
+          <rect class="na" x="130" y="88" width="100" height="44" rx="8"/><text x="180" y="106" text-anchor="middle">FastAPI</text><text x="180" y="121" text-anchor="middle">agent loop</text>
+          <rect class="nb" x="140" y="10" width="80" height="36" rx="8"/><text x="180" y="32" text-anchor="middle">Claude</text>
+          <rect class="n" x="270" y="40" width="70" height="36" rx="8"/><text x="305" y="62" text-anchor="middle">read</text>
+          <rect class="n" x="270" y="144" width="70" height="36" rx="8"/><text x="305" y="166" text-anchor="middle">gate</text>
+          <rect class="na" x="360" y="88" width="56" height="44" rx="8"/><text x="388" y="114" text-anchor="middle">Odoo</text>
+          <path class="e" d="M94 110H128"/>
+          <path class="ed" d="M180 88V48"/>
+          <path class="e" d="M230 100L268 62"/>
+          <path class="e" d="M230 120L268 160"/>
+          <path class="e" d="M340 58L362 96"/>
+          <path class="e" d="M340 162L362 126"/>
+        </svg>
+      </div>
+    </div>
+    <div class="proj reveal">
+      <div>
+        <h3 data-es="Facturación electrónica e-CF" data-en="e-CF electronic invoicing">Facturación electrónica e-CF</h3>
+        <p data-es="Implementación del comprobante fiscal electrónico de la DGII para empresas dominicanas, con un sistema propio que guía la certificación paso a paso." data-en="Implementation of DGII's electronic fiscal receipt for Dominican companies, with an in-house system that guides certification step by step.">Implementación del comprobante fiscal electrónico de la DGII para empresas dominicanas, con un sistema propio que guía la certificación paso a paso.</p>
+        <ul>
+          <li data-es="Generación, firma y envío de XML a la DGII" data-en="XML generation, signing and DGII submission">Generación, firma y envío de XML a la DGII</li>
+          <li data-es="Seguimiento de estados integrado al ERP o POS" data-en="Status tracking integrated with the ERP or POS">Seguimiento de estados integrado al ERP o POS</li>
+          <li data-es="Clientes certificados en 5 a 10 días hábiles" data-en="Clients certified in 5 to 10 business days">Clientes certificados en 5 a 10 días hábiles</li>
+        </ul>
+        <div class="chips"><span class="chip">Python</span><span class="chip">XML-DSig</span><span class="chip">DGII API</span><span class="chip">l10n_do</span></div>
+      </div>
+      <div class="flow">
+        <svg viewBox="0 0 420 220">
+          <rect class="n" x="6" y="90" width="80" height="40" rx="8"/><text x="46" y="114" text-anchor="middle">ERP / POS</text>
+          <rect class="na" x="116" y="90" width="96" height="40" rx="8"/><text x="164" y="108" text-anchor="middle">e-CF XML</text><text x="164" y="122" text-anchor="middle">firma</text>
+          <rect class="nb" x="244" y="90" width="72" height="40" rx="8"/><text x="280" y="114" text-anchor="middle">DGII</text>
+          <rect class="n" x="340" y="90" width="74" height="40" rx="8"/><text x="377" y="114" text-anchor="middle">TrackId</text>
+          <rect class="n" x="116" y="16" width="96" height="40" rx="8"/><text x="164" y="34" text-anchor="middle">asistente</text><text x="164" y="48" text-anchor="middle">certificación</text>
+          <path class="e" d="M86 110H114"/>
+          <path class="ed" d="M212 110H242"/>
+          <path class="e" d="M316 110H338"/>
+          <path class="e" d="M164 56V88"/>
+          <path class="e" d="M377 130V180H46V132"/>
+        </svg>
+      </div>
+    </div>
+    <div class="proj reveal">
+      <div>
+        <h3 data-es="Plataforma retail multi-sucursal" data-en="Multi-branch retail platform">Plataforma retail multi-sucursal</h3>
+        <p data-es="Operación de tres sucursales de retail y restaurante sobre Odoo 19, con apps Flutter para clientes y repartidores." data-en="Three retail and restaurant branches running on Odoo 19, with Flutter apps for customers and drivers.">Operación de tres sucursales de retail y restaurante sobre Odoo 19, con apps Flutter para clientes y repartidores.</p>
+        <ul>
+          <li data-es="4 terminales POS y un solo inventario" data-en="4 POS terminals and a single inventory">4 terminales POS y un solo inventario</li>
+          <li data-es="Edge Functions (Deno) que llaman a Odoo por XML-RPC" data-en="Edge Functions (Deno) calling Odoo over XML-RPC">Edge Functions (Deno) que llaman a Odoo por XML-RPC</li>
+          <li data-es="Estado de pedidos en tiempo real y notificaciones push" data-en="Real-time order status and push notifications">Estado de pedidos en tiempo real y notificaciones push</li>
+        </ul>
+        <div class="chips"><span class="chip">Odoo 19</span><span class="chip">Deno</span><span class="chip">Flutter</span><span class="chip">TypeScript</span><span class="chip">FCM</span></div>
+      </div>
+      <div class="flow">
+        <svg viewBox="0 0 420 220">
+          <rect class="nb" x="6" y="84" width="92" height="52" rx="8"/><text x="52" y="104" text-anchor="middle">Flutter</text><text x="52" y="120" text-anchor="middle">cliente·driver</text>
+          <rect class="na" x="140" y="84" width="104" height="52" rx="8"/><text x="192" y="104" text-anchor="middle">Edge Fns</text><text x="192" y="120" text-anchor="middle">Deno · TS</text>
+          <rect class="na" x="290" y="84" width="124" height="52" rx="8"/><text x="352" y="104" text-anchor="middle">Odoo 19</text><text x="352" y="120" text-anchor="middle">3 suc · 4 POS</text>
+          <rect class="n" x="140" y="168" width="104" height="36" rx="8"/><text x="192" y="190" text-anchor="middle">Realtime</text>
+          <rect class="n" x="140" y="14" width="104" height="36" rx="8"/><text x="192" y="36" text-anchor="middle">FCM push</text>
+          <path class="e" d="M98 110H138"/>
+          <path class="ed" d="M244 110H288"/>
+          <path class="e" d="M352 136V186H246"/>
+          <path class="e" d="M140 186H52V138"/>
+          <path class="e" d="M192 84V52"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="also">
+      <div class="mini reveal">
+        <h4>DiDoc</h4>
+        <p data-es="SaaS multi-tenant de gestión documental con almacenamiento cifrado por cliente en Google Cloud Storage y URLs firmadas." data-en="Multi-tenant document management SaaS with per-tenant encrypted storage on Google Cloud Storage and signed URLs.">SaaS multi-tenant de gestión documental con almacenamiento cifrado por cliente en Google Cloud Storage y URLs firmadas.</p>
+        <div class="chips"><span class="chip">Next.js 15</span><span class="chip">.NET Core 8</span><span class="chip">GCS CSEK</span><span class="chip">Cloudflare</span></div>
+      </div>
+      <div class="mini reveal">
+        <h4 data-es="ERP SaaS para pymes" data-en="SaaS ERP for SMBs">ERP SaaS para pymes</h4>
+        <p data-es="ERP multi-tenant para pymes dominicanas con planes de suscripción y cumplimiento DGII (NCF, ITBIS) integrado." data-en="Multi-tenant ERP for Dominican SMBs with subscription plans and built-in DGII compliance (NCF, ITBIS).">ERP multi-tenant para pymes dominicanas con planes de suscripción y cumplimiento DGII (NCF, ITBIS) integrado.</p>
+        <div class="chips"><span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span><span class="chip">React/Vite</span><span class="chip">PostgreSQL</span></div>
+      </div>
+      <div class="mini reveal">
+        <h4 data-es="Telefonía VoIP" data-en="VoIP telephony">Telefonía VoIP</h4>
+        <p data-es="Centrales Asterisk y troncales SIP para llamadas nacionales e internacionales integradas a la plataforma." data-en="Asterisk PBX and SIP trunks for domestic and international calling integrated into the platform.">Centrales Asterisk y troncales SIP para llamadas nacionales e internacionales integradas a la plataforma.</p>
+        <div class="chips"><span class="chip">Asterisk</span><span class="chip">SIP</span><span class="chip">VoIP</span></div>
+      </div>
+      <div class="mini reveal">
+        <h4 data-es="Migraciones y automatización" data-en="Migrations & automation">Migraciones y automatización</h4>
+        <p data-es="Migraciones de Odoo de v12 a v19, APIs de solo lectura con grupos de seguridad propios y flujos de negocio en n8n." data-en="Odoo migrations from v12 to v19, read-only APIs with custom security groups and business workflows in n8n.">Migraciones de Odoo de v12 a v19, APIs de solo lectura con grupos de seguridad propios y flujos de negocio en n8n.</p>
+        <div class="chips"><span class="chip">OpenUpgrade</span><span class="chip">n8n</span><span class="chip">Docker</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <h2 class="reveal">Stack</h2>
+    <p class="sub reveal" data-es="Las herramientas con las que entrego todos los días." data-en="The tools I ship with every day.">Las herramientas con las que entrego todos los días.</p>
+    <div class="stack">
+      <div class="grp reveal"><h4>Backend</h4><div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span><span class="chip">Alembic</span><span class="chip">.NET Core 8</span><span class="chip">Deno</span></div></div>
+      <div class="grp reveal"><h4>ERP</h4><div class="chips"><span class="chip">Odoo 12–19</span><span class="chip">XML-RPC</span><span class="chip">l10n_do</span><span class="chip">OpenUpgrade</span></div></div>
+      <div class="grp reveal"><h4>Frontend &amp; mobile</h4><div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Vite</span><span class="chip">TypeScript</span><span class="chip">Flutter</span></div></div>
+      <div class="grp reveal"><h4 data-es="Datos e infraestructura" data-en="Data & infra">Datos e infraestructura</h4><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">nginx</span><span class="chip">AWS</span><span class="chip">Cloudflare</span><span class="chip">DigitalOcean</span><span class="chip">GCP</span></div></div>
+      <div class="grp reveal"><h4 data-es="IA y automatización" data-en="AI & automation">IA y automatización</h4><div class="chips"><span class="chip">Anthropic SDK</span><span class="chip">MCP</span><span class="chip">Agent loops</span><span class="chip">n8n</span><span class="chip">WhatsApp bots</span></div></div>
+      <div class="grp reveal"><h4 data-es="Telecom y fiscal" data-en="Telecom & tax">Telecom y fiscal</h4><div class="chips"><span class="chip">Asterisk</span><span class="chip">SIP</span><span class="chip">DGII e-CF</span><span class="chip">NCF</span><span class="chip">ITBIS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <h2 class="reveal" data-es="Experiencia" data-en="Experience">Experiencia</h2>
+    <p class="sub reveal" data-es="Del mundo de las telecomunicaciones al software empresarial y la IA." data-en="From telecommunications to enterprise software and AI.">Del mundo de las telecomunicaciones al software empresarial y la IA.</p>
+    <div class="tl">
+      <div class="tli reveal"><small data-es="Actual" data-en="Current">Actual</small><h4>CodeFactory DR</h4><p data-es="Mi estudio de desarrollo. ERPs, facturación electrónica e-CF y agentes de IA para pymes en República Dominicana." data-en="My development studio. ERPs, e-CF electronic invoicing and AI agents for SMBs in the Dominican Republic.">Mi estudio de desarrollo. ERPs, facturación electrónica e-CF y agentes de IA para pymes en República Dominicana.</p></div>
+      <div class="tli reveal"><small data-es="Actual" data-en="Current">Actual</small><h4>Full-Stack Developer · Tactuk Team</h4><p data-es="Plataformas multi-sucursal, helpdesk automatizado sobre Odoo e infraestructura para varios negocios." data-en="Multi-branch platforms, automated helpdesk on Odoo and infrastructure for several businesses.">Plataformas multi-sucursal, helpdesk automatizado sobre Odoo e infraestructura para varios negocios.</p></div>
+      <div class="tli reveal"><small data-es="Anterior · remoto" data-en="Previous · remote">Anterior · remoto</small><h4>Software Developer III · ERC</h4><p data-es="Desarrollo de software empresarial en equipo remoto." data-en="Enterprise software development on a remote team.">Desarrollo de software empresarial en equipo remoto.</p></div>
+      <div class="tli reveal"><small data-es="Anterior · remoto" data-en="Previous · remote">Anterior · remoto</small><h4>Whisl Telecom LLC</h4><p data-es="VoIP y centrales Asterisk PBX." data-en="VoIP and Asterisk PBX systems.">VoIP y centrales Asterisk PBX.</p></div>
+      <div class="tli reveal"><small data-es="Formación" data-en="Education">Formación</small><h4 data-es="Ingeniería en Telecomunicaciones · PUCMM" data-en="Telecommunications Engineering · PUCMM">Ingeniería en Telecomunicaciones · PUCMM</h4></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <h2 class="reveal" data-es="¿Tienes un proyecto en mente?" data-en="Got a project in mind?">¿Tienes un proyecto en mente?</h2>
+    <p class="sub reveal" data-es="Cuéntame qué necesita tu negocio y te digo cómo lo resolvería." data-en="Tell me what your business needs and I'll tell you how I'd solve it.">Cuéntame qué necesita tu negocio y te digo cómo lo resolvería.</p>
+    <div class="cta reveal">
+      <a class="btn primary" href="https://wa.me/18493892307" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn ghost" href="mailto:ctactuk@gmail.com">Email</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/carlos-tactuk-87945143/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/ctactuk" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://codefactorydr.com" target="_blank" rel="noopener">CodeFactory DR</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Carlos Tactuk</span>
+    <span>Santiago, República Dominicana</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function setLang(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-'+l+']').forEach(function(el){ el.innerHTML = el.getAttribute('data-'+l); });
+    document.getElementById('b-es').classList.toggle('on', l==='es');
+    document.getElementById('b-en').classList.toggle('on', l==='en');
+    try{ localStorage.setItem('lang', l); }catch(e){}
+  }
+  document.getElementById('b-es').onclick = function(){ setLang('es'); };
+  document.getElementById('b-en').onclick = function(){ setLang('en'); };
+  var saved = null;
+  try{ saved = localStorage.getItem('lang'); }catch(e){}
+  if(!saved && navigator.language && navigator.language.indexOf('es') !== 0) saved = 'en';
+  if(saved && saved !== 'es') setLang(saved);
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
