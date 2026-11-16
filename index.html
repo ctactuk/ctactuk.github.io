@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carlos Tactuk · Senior Full-Stack Developer</title>
+<meta property="og:image" content="https://ctactuk.github.io/assets/carlos.jpg">
 <meta name="description" content="Senior Full-Stack Developer en Santiago, RD. ERP (Odoo), facturación electrónica DGII e-CF y agentes de IA para empresas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +38,9 @@
   .hero::before{content:"";position:absolute;inset:0;background:
     radial-gradient(600px 300px at 80% 10%,rgba(56,224,166,.12),transparent 70%),
     radial-gradient(500px 300px at 10% 90%,rgba(90,169,255,.10),transparent 70%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1fr 260px;gap:56px;align-items:center}
+  .avatar{width:260px;height:260px;border-radius:50%;object-fit:cover;border:3px solid var(--line);box-shadow:0 0 0 8px rgba(56,224,166,.08)}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.avatar{width:150px;height:150px;order:-1}}
   .tag{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:10px}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(56,224,166,.6);animation:pulse 2s infinite}
   @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(56,224,166,0)}100%{box-shadow:0 0 0 0 rgba(56,224,166,0)}}
@@ -141,12 +145,17 @@
 
 <header class="hero">
   <div class="wrap">
+    <div class="hero-grid">
+    <div>
     <div class="tag"><span data-es="Disponible para proyectos · Santiago, RD · Remoto" data-en="Available for projects · Santiago, DR · Remote">Disponible para proyectos · Santiago, RD · Remoto</span></div>
     <h1 data-es="Construyo ERPs, facturación electrónica y <em>agentes de IA</em> que trabajan para tu negocio." data-en="I build ERPs, e-invoicing and <em>AI agents</em> that work for your business.">Construyo ERPs, facturación electrónica y <em>agentes de IA</em> que trabajan para tu negocio.</h1>
     <p class="lead" data-es="Soy Carlos, Senior Full-Stack Developer con más de 10 años conectando los sistemas que mueven una empresa: ERP, punto de venta, DGII, telefonía y apps móviles, con IA encima que lee y actúa de forma segura." data-en="I'm Carlos, a Senior Full-Stack Developer with 10+ years connecting the systems a company runs on: ERP, point of sale, tax authority, phone lines and mobile apps, with AI on top that reads and acts safely.">Soy Carlos, Senior Full-Stack Developer con más de 10 años conectando los sistemas que mueven una empresa: ERP, punto de venta, DGII, telefonía y apps móviles, con IA encima que lee y actúa de forma segura.</p>
     <div class="cta">
       <a class="btn primary" href="#proyectos" data-es="Ver proyectos" data-en="See projects">Ver proyectos</a>
       <a class="btn ghost" href="#contacto" data-es="Hablemos" data-en="Let's talk">Hablemos</a>
+    </div>
+    </div>
+    <img class="avatar" src="assets/carlos.jpg" alt="Carlos Tactuk" width="260" height="260">
     </div>
     <div class="stats">
       <div class="stat"><b>10+</b><span data-es="años de experiencia" data-en="years of experience">años de experiencia</span></div>
